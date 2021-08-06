@@ -1,14 +1,28 @@
 # Natural Animation Engine
 
-## Build
-1. Make sure you have the (wasm-pack cli)[https://rustwasm.github.io/wasm-pack/installer/] installed.
+## Getting started
+1. Make sure you have (Rust)[https://www.rust-lang.org/tools/install] installed
+2. Install the (wasm-pack cli)[https://rustwasm.github.io/wasm-pack/installer/] installed.
 
 ```bash
-curl https://rustwasm.github.io/wasm-pack/installer/init.sh -sSf | sh
+    curl https://rustwasm.github.io/wasm-pack/installer/init.sh -sSf | sh
+```
+3. Install the development watcher 
+
+```bash
+    cargo install cargo-watch
 ```
 
-2. Build a web package.
+## Development
+```bash
+    # To kickstart the watcher you can run:
+    cargo watch -s 'wasm-pack build --target web'
+```
+
+## Build
+
+1. Build a wasm package manually.
 
 ```bash
-wasm-pack build --target web
+    wasm-pack build --target web
 ```
