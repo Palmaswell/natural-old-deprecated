@@ -1,8 +1,8 @@
 # Natural Animation Engine
 
 ## Getting started
-1. Make sure you have (Rust)[https://www.rust-lang.org/tools/install] installed
-2. Install the (wasm-pack cli)[https://rustwasm.github.io/wasm-pack/installer/] installed.
+1. Make sure you have [Rust](https://www.rust-lang.org/tools/install) installed.
+2. Install the [wasm-pack](https://rustwasm.github.io/wasm-pack/installer/) cli installed.
 
 ```bash
     curl https://rustwasm.github.io/wasm-pack/installer/init.sh -sSf | sh
