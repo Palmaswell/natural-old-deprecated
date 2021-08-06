@@ -1,16 +1,16 @@
 <!DOCTYPE html>
-<html>
+<html lang="en-US">
   <head>
     <meta charset="utf-8">
-    <title>hello-wasm example</title>
+    <title>Natural Animation Engine Examples</title>
   </head>
   <body>
     <script type="module">
       import init, {greet} from "./pkg/natural.js";
-      init()
-        .then(() => {
-          greet("Mau")
-        });
+      (async() => {
+        await init()
+        greet("lovely folks")
+      })()
       </script>
   </body>
 </html>
