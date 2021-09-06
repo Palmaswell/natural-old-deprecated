@@ -7,7 +7,7 @@ extern "C" {
 
 #[wasm_bindgen]
 pub fn greet(name: &str) {
-    alert(&format!("Howdy, {}", name));
+    alert(&format!("Hola a todos?????, {}", name));
 }
 
 #[cfg(test)]

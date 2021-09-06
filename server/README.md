@@ -1,4 +1,4 @@
-# Server
+# Web Server
 
 **TODO: Add description**
 

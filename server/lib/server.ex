@@ -3,8 +3,11 @@ defmodule Server.Router do
   use Plug.Router
 
   # Serves static files
-  @static_path Path.expand("../../natural/static/")
-  plug Plug.Static, at: "/static", from: @static_path
+  @static_path Path.expand("../../static/", __DIR__)
+  plug Plug.Static,
+    at: "/static",
+    from: @static_path,
+    content_types: %{"pkg/natural_bg.wasm" => "application/wasm"}
 
   plug :match
   plug :dispatch
