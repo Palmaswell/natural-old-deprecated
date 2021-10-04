@@ -7,7 +7,7 @@ defmodule Server.Router do
   plug Plug.Static,
     at: "/static",
     from: @static_path,
-    content_types: %{"pkg/natural_bg.wasm" => "application/wasm"}
+    content_types: %{"natural_bg.wasm" => "application/wasm"}
 
   plug :match
   plug :dispatch
