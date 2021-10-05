@@ -30,7 +30,16 @@ impl Vector {
 
     pub fn normalize(&self) -> Vector {
         let magnitude = self.magnitude();
-        self.div(&magnitude)
+        // Return a new Vector with the initial values in case
+        // the magnitude is 0.0
+        if magnitude <= 0.0 {
+            Vector {
+                x: self.x,
+                y: self.y,
+            }
+        } else {
+            self.div(&magnitude)
+        }
     }
 
     pub fn mult(&self, number: &f64) -> Vector {
