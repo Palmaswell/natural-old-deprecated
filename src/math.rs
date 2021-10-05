@@ -4,36 +4,46 @@ pub struct Vector {
 }
 
 impl Vector {
+    fn calc_precision(&self, value: &f64) -> f64 {
+        let precision = 100_000_000.0;
+        (value * precision).round() / precision
+    }
+
     pub fn add(&self, vector: &Vector) -> Vector {
         Vector {
-            x: self.x + vector.x,
-            y: self.y + vector.y,
+            x: self.calc_precision(&(self.x + vector.x)),
+            y: self.calc_precision(&(self.y + vector.y)),
         }
     }
 
     pub fn div(&self, number: &f64) -> Vector {
         Vector {
-            x: self.x / number,
-            y: self.y / number,
+            x: self.calc_precision(&(self.x / number)),
+            y: self.calc_precision(&(self.y / number)),
         }
     }
 
     pub fn magnitude(&self) -> f64 {
         let length: f64 = self.x * self.x + self.y * self.y;
-        length.sqrt()
+        self.calc_precision(&length.sqrt())
+    }
+
+    pub fn normalize(&self) -> Vector {
+        let magnitude = self.magnitude();
+        self.div(&magnitude)
     }
 
     pub fn mult(&self, number: &f64) -> Vector {
         Vector {
-            x: self.x * number,
-            y: self.y * number,
+            x: self.calc_precision(&(self.x * number)),
+            y: self.calc_precision(&(self.y * number)),
         }
     }
 
     pub fn sub(&self, vector: &Vector) -> Vector {
         Vector {
-            x: self.x - vector.x,
-            y: self.y - vector.y,
+            x: self.calc_precision(&(self.x - vector.x)),
+            y: self.calc_precision(&(self.y - vector.y)),
         }
     }
 }
@@ -84,6 +94,14 @@ mod tests {
     fn should_calculate_magnitute() {
         let location = Vector { x: 10.0, y: 5.0 };
         let magnitude = location.magnitude();
-        assert!(magnitude == 11.180339887498949);
+        assert!(magnitude == 11.18033989);
+    }
+
+    #[test]
+    fn should_normalize() {
+        let location = Vector { x: 10.0, y: 5.0 };
+        let normalize = location.normalize();
+        assert!(normalize.x == 0.89442719);
+        assert!(normalize.y == 0.4472136);
     }
 }
