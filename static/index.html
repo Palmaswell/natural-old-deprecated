@@ -5,12 +5,15 @@
     <title>Natural Animation Engine Examples</title>
   </head>
   <body>
-    <canvas id="canvas" height="2560" width="1600"></canvas>
+    <canvas id="canvas" height="500" width="500"></canvas>
     <script type="module">
-      import init, {greet} from "./static/pkg/natural.js";
+      import init, {draw} from "./static/pkg/natural.js";
       (async() => {
+        const canvas = document.getElementById("canvas")
+        const ctx = canvas.getContext("2d")
+
         await init()
-        greet("lovely folks")
+        draw(canvas.width, canvas.height)
       })()
       </script>
   </body>
