@@ -7,13 +7,14 @@
   <body>
     <canvas id="canvas" height="500" width="500"></canvas>
     <script type="module">
-      import init, {draw} from "./static/pkg/natural.js";
+      import init, {run} from "./static/pkg/natural.js";
       (async() => {
         const canvas = document.getElementById("canvas")
         const ctx = canvas.getContext("2d")
 
         await init()
-        draw(canvas.width, canvas.height)
+        const foo = run(canvas.width, canvas.height)
+        console.log(foo, "this is the result")
       })()
       </script>
   </body>

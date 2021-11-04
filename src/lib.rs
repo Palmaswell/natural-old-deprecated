@@ -10,6 +10,8 @@ pub struct Mover {
     pub canvas_height: u32,
 }
 
+pub struct MoverResult(pub u8, pub u8);
+
 impl Mover {
     fn constrain(&mut self) -> math::Vector {
         let mut x = self.location.x;
@@ -34,7 +36,7 @@ impl Mover {
 }
 
 #[wasm_bindgen]
-pub fn run(width: u32, height: u32) {
+pub fn run(width: u32, height: u32) -> u32 {
     let mut rng = rand::thread_rng();
     let initial_location = Vector { x: 100.0, y: 500.0 };
     let initial_velocity = Vector {
@@ -56,5 +58,7 @@ pub fn run(width: u32, height: u32) {
         });
         mover.update();
         println!("x {} y {}", mover.location.x, mover.location.y);
+
+        return mover.location.x as u32;
     }
 }
